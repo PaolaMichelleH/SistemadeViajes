@@ -1,0 +1,130 @@
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" routerLink="/hompepage/colaboradores">Colaboradores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sucursales</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Asignaciones</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Viajes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Reportes</a>
+  </li>
+</ul>
+<div class="container mt-20">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card-body text-center">
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="#victorModal" role="button" class="btn btn-large btn-primary me-md-2" data-toggle="modal">Agregar</a>
+
+<!-- Modal/Agregar asignacion -->
+<div id="victorModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Agregar asignacion</h6>
+            </div>
+            <br>
+            <form [formGroup]="formAsignaciones" class="row g-3" >
+              <br>
+              <div class="col-md-6" class="btn-group">
+                <br>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Elegir Sucursal
+                  </button>
+
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Super Simán</a></li>
+                    <li><a class="dropdown-item" href="#">Simán Avenida Junior</a></li>
+                    <li><a class="dropdown-item" href="#">Simán Multiplaza</a></li>
+                    <li><a class="dropdown-item" href="#">Simán City Mall</a></li>
+                    <li><a class="dropdown-item" href="#">Simán Galerías del Valle</a></li>
+                    <li><a class="dropdown-item" href="#">Simán Plaza Moderna</a></li>
+                    <li><a class="dropdown-item" href="#">Simán Villanueva</a></li>
+                    <li><a class="dropdown-item" href="#">Simán MegaMall</a></li>
+                    <li><a class="dropdown-item" href="#">Simán Los Andes</a></li>
+                    <li><a class="dropdown-item" href="#">Simán Las Palmas</a></li>
+                  </ul>
+                </div >
+            <br>
+              <div class="col-md-6" class="btn-group">
+                <br>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Asignar Colaborador
+                  </button>
+
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">9658</a></li>
+                    <li><a class="dropdown-item" href="#">7592</a></li>
+                  </ul>
+                </div >
+
+              <div class="col-md-6">
+                <br>
+                  <input formControlName="nombreColaborador" type="text" class="form-control" id="nombreColaborador" placeholder="Nombre Colaborador">
+                </div>
+                <div class="col-md-6">
+                  <br>
+                    <input formControlName="direccionColaborador" type="text" class="form-control" id="direcciónColaborador" placeholder="Direccion Colaborador">
+                  </div>
+              <div class="col-md-6">
+                <br>
+                <input formControlName="idSucursal" type="text" class="form-control" id="idSucursal" placeholder="Id Sucursal">
+              </div>
+              <div class="col-md-6">
+                <br>
+                  <input formControlName="direccionSucursal" type="text" class="form-control" id="direcciónSucursal" placeholder="Direccion sucursal">
+                </div>
+                <div class="col-md-6">
+                  <br>
+                    <input formControlName="usuario" type="text" class="form-control" id="usuario" placeholder="Usuario">
+                  </div>
+            </form>
+            <br>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button [disabled]="this.formAsignaciones.invalid" type="button" (click)="guardarAsignacion()" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        <br>
+        <br>
+        <table class="table table-striped" >
+          <thead >
+            <tr>
+              <th scope="col" >Id</th>
+              <th scope="col">Id Colaborador</th>
+              <th scope="col">Nombre de Colaborador</th>
+              <th scope="col">Dirección Colaborador</th>
+              <th scope="col">Id Sucursal</th>
+              <th scope="col">Dirección Sucursal</th>
+              <th scope="col">Asignado por</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let asignacion of listAsignaciones">
+            <td>{{asignacion.id}}</td>
+            <td>{{asignacion.idColaborador}}</td>
+            <td>{{asignacion.nombreColaborador}}</td>
+            <td>{{asignacion.direccionColaborador}}</td>
+            <td>{{asignacion.idSucursal}}</td>
+            <td>{{asignacion.direccionSucursal}}</td>
+            <td>{{asignacion.usuario}}</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

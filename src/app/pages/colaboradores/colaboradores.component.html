@@ -1,0 +1,86 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" routerLink="/hompepage/colaboradores">Colaboradores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sucursales</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Asignaciones</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Viajes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Reportes</a>
+  </li>
+</ul>
+<div class="container mt-20">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card-body text-center">
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="#victorModal" role="button" class="btn btn-large btn-primary me-md-2" data-toggle="modal">Agregar</a>
+
+<!-- Modal/Agregar colaborador -->
+<div id="victorModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Agregar colaborador</h6>
+            </div>
+            <form [formGroup]="formColaborador" class="row g-3" >
+              <div class="col-md-6">
+                <br>
+                <input formControlName="id" type="text" class="form-control" id="id" placeholder="ID">
+              </div>
+              <div class="col-md-6">
+                <br>
+                <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+              </div>
+              <div class="col-md-6">
+                <br>
+                  <input formControlName="direccion" type="text" class="form-control" id="dirección" placeholder="Dirección">
+                </div>
+              <div class="col-md-6">
+                <br>
+                <input formControlName="telefono" type="text" class="form-control" id="telefono" placeholder="Telefono">
+                <br>
+              </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button [disabled]="this.formColaborador.invalid" type="button" (click)="guardarColaborador()" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        <br>
+        <br>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Telefono</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let colaborador of listColaboradores">
+            <td>{{colaborador.id}}</td>
+            <td>{{colaborador.nombre}}</td>
+            <td>{{colaborador.direccion}}</td>
+            <td>{{colaborador.telefono}}</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

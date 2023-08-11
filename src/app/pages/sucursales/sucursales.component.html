@@ -1,0 +1,47 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/hompepage/colaboradores">Colaboradores</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" routerLink="/hompepage/sucursales">Sucursales</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/hompepage/Asignaciones">Asignaciones</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/hompepage/Viajes">Viajes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/hompepage/Reportes">Reportes</a>
+  </li>
+</ul>
+
+
+<div class="container mt-20">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card-body text-center">
+        <br>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id Sucursal</th>
+              <th scope="col">Nombre Sucursal</th>
+              <th scope="col">Direccion</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let sucursal of listSucursales">
+            <td>{{sucursal.idSucursal}}</td>
+            <td>{{sucursal.nombreSucursal}}</td>
+            <td>{{sucursal.direccionSucursal}}</td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
