@@ -1,5 +1,5 @@
-using FBViajes.Models;
 using Microsoft.AspNetCore.Mvc;
+using FBViajes.Models;
 using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -8,37 +8,23 @@ namespace FBViajes.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class ColaboradoresController : ControllerBase
+  public class SucursalesController : ControllerBase
   {
     private readonly AplicationDbContext _context;
-    public ColaboradoresController(AplicationDbContext context)
+
+    public SucursalesController(AplicationDbContext context)
     {
-      _context= context;
+      _context = context;
     }
-    // GET: api/<ColaboradoresController>
+
+    // GET: api/<SucursalesController>
     [HttpGet]
     public async Task<IActionResult> Get()
     {
       try
       {
-        var listColaboradores = await _context.Colaboradores.ToListAsync();
-        return Ok(listColaboradores);
-      }
-      catch (Exception ex) 
-      {
-        return BadRequest(ex.Message);
-      }
-    }
-
-    // POST api/<ColaboradoresController>
-    [HttpPost]
-    public async Task<IActionResult> Post([FromBody] Colaboradores colaborador)
-    {
-      try
-      {
-        _context.Add(colaborador);
-        await _context.SaveChangesAsync();
-        return Ok(colaborador);
+        var listSucursales = await _context.Sucursales.ToListAsync();
+        return Ok(listSucursales);
       }
       catch (Exception ex)
       {
@@ -46,6 +32,23 @@ namespace FBViajes.Controllers
       }
     }
 
-    
+
+    // POST api/<SucursalesController>
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] Sucursales sucursales)
+    {
+      try
+      {
+        _context.Add(sucursales);
+        await _context.SaveChangesAsync();
+        return Ok(sucursales);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest(ex.Message);
+      }
+    }
+
+
   }
 }
