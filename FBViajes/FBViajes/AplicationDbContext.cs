@@ -26,7 +26,8 @@ namespace FBViajes
     public Microsoft.EntityFrameworkCore.DbSet<Colaboradores> Colaboradores { get; set; }
     //public class PluralizingTableNameConvention : IStoreModelConvention<System.Data.Entity.Core.Metadata.Edm.EntityType>
     //{
-    
+    public Microsoft.EntityFrameworkCore.DbSet<Sucursales> Sucursales { get; set; }
+    public Microsoft.EntityFrameworkCore.DbSet<Asignaciones> Asignaciones { get; set; }
     public void Apply(EntityType item, DbModel model)
       {
         throw new NotImplementedException();
